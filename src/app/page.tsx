@@ -24,7 +24,9 @@ export default function Navbar() {
   const [state, setState] = React.useState(false);
   const router = useRouter();
   const handleWaitlist = () => {
-    router.push("/waitlist");
+    window.open(
+      "https://play.google.com/store/apps/details?id=com.pikuphq.pikupuser"
+    );
   };
   const menus = [
     { title: "Home", path: "/" },
@@ -101,14 +103,19 @@ export default function Navbar() {
           Join our exclusive community of beta testers and help shape the future
           of on-demand dining.
         </p>
-        
-          <button
-            className="w-[240px] mt-3 py-3 text-white font-bold tracking-wider bg-[#FE7622] rounded-md hover:bg-[#FF6B22]"
-            onClick={handleWaitlist}
-          >
-            Join the waitlist
-          </button>
-        
+
+        <button
+          className=" mt-3 py-3 flex items-center justify-center gap-2 text-white font-bold tracking-wider  rounded-md  transition"
+          onClick={handleWaitlist}
+        >
+          <Image
+            src="/pngegg.png"
+            alt="Google Play logo"
+            width={240}
+            height={50}
+            className="object-contain"
+          />
+        </button>
       </div>
       <div className="mt-[60px] grid lg:grid-cols-2 lg:px-20 mb-10 px-1 ">
         <div className="grid grid-cols-2 gap-[10%] items-center">
@@ -130,10 +137,21 @@ export default function Navbar() {
             Follow us on social media
           </p>
           <div className="flex gap-3 lg:justify-end pt-3">
-            <Link href='https://x.com/pikuphq' target="_blank"><Twitter /></Link> 
-            <Link href=''><Facebook /></Link>
-            <Link href='https://instagram.com/pikuphq' target="_blank"><Instagram /></Link>
-            <Link href='https://www.linkedin.com/company/pikup-hq' target="_blank"><Linkedin /></Link>
+            <Link href="https://x.com/pikuphq" target="_blank">
+              <Twitter />
+            </Link>
+            <Link href="">
+              <Facebook />
+            </Link>
+            <Link href="https://instagram.com/pikuphq" target="_blank">
+              <Instagram />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/pikup-hq"
+              target="_blank"
+            >
+              <Linkedin />
+            </Link>
           </div>
         </div>
       </div>
