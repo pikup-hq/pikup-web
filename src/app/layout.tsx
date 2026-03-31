@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
-const beVietnam = Be_Vietnam_Pro({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800", "900"],
+  variable: "--font-outfit",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -12,20 +20,6 @@ export const metadata: Metadata = {
   description: "Your trusted platform for on-demand delivery services.", 
   keywords: "delivery, logistics, on-demand services, Pikup, food, food Delivery, chowdeck, chop, hungry, campus",
   robots: "index, follow", 
-  // openGraph: {
-  //   title: "Pikup - On-Demand Delivery Services",
-  //   description: "Fast, reliable delivery services at your fingertips.",
-  //   url: "https://pikup.ng", 
-  //   siteName: "Pikup",
-  //   images: [
-  //     {
-  //       url: "/asserts/Frame 2.svg",
-  //       width: 1200,
-  //       height: 630,
-  //       alt: "Pikup Delivery Services",
-  //     },
-  //   ],
-  // },
   twitter: {
     card: "summary_large_image",
     site: "@pikuphq", 
@@ -44,11 +38,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-      
-      </head>
-      <body className={beVietnam.className}>{children}</body>
+    <html lang="en" className={`${outfit.variable} ${inter.variable} scroll-smooth`}>
+      <body className="font-inter antialiased bg-background text-foreground">
+        <LoadingScreen />
+        <Navbar />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
+
